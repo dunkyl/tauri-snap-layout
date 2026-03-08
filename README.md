@@ -1,28 +1,11 @@
-# Development
+# Snap layout workaround for Tauri apps
 
-Your new bare-bones project includes minimal organization with a single `main.rs` file and a few assets.
+See `src/snap_layout.rs` for most of the useful code. `use_snap_layout` is the where it gets started. It spawns a window to capture events and respond to `WM_NCHITTEST`. It sends some other events back through a channel for, in this case, hover and click events to be reflected in the webview 'manually'.
 
-```
-project/
-├─ assets/ # Any assets that are used by the app should be placed here
-├─ src/
-│  ├─ main.rs # main.rs is the entry point to your application and currently contains all components for the app
-├─ Cargo.toml # The Cargo.toml file defines the dependencies and feature flags for your project
-```
-
-
-
-### Serving Your App
-
-Run the following command in the root of your project to start developing with the default platform:
+This repository uses dioxus, so to run it, it is easiest with their CLI.
 
 ```bash
 dx serve
 ```
 
-To run for a different platform, use the `--platform platform` flag. E.g.
-```bash
-dx serve --platform desktop
-```
-
-
+(If you juse use `cargo run`, it will not be styled.)
